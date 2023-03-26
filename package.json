@@ -2,7 +2,7 @@
   "private": true,
   "displayName": "Songguo PC Card",
   "name": "homebridge-songguo-pc-card",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A homebridge plugin for Songguo PC Card",
   "license": "Apache-2.0",
   "repository": {
