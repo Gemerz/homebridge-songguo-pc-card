@@ -1,7 +1,7 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
-  "pluginType": "platform",
-  "singular": true,
+  "pluginAlias": "SongguoPCCard",
+  "pluginType": "accessory",
+  "singular": false,
   "schema": {
     "type": "object",
     "properties": {
@@ -9,8 +9,37 @@
         "title": "Name",
         "type": "string",
         "required": true,
-        "default": "Example Dynamic Platform"
+        "default": "电脑",
+        "placeholder": "电脑卡名称"
+      },
+      "username": {
+        "title": "username",
+        "type": "string",
+        "required": true
+      },
+      "password": {
+        "title": "Password",
+        "type": "string",
+        "required": true
       }
-    }
+    },
+    "layout": [
+      {
+        "key": "name"
+      },
+      {
+        "type": "flex",
+        "flex-flow": "row wrap",
+        "items": [
+          "name",
+          "username",
+          "password"
+        ]
+      },
+      {
+        "type": "help",
+        "helpvalue": ""
+      }
+    ]
   }
 }
