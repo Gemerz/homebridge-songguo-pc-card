@@ -15,8 +15,7 @@ export interface SongguoPCCardAccessoryConfig extends AccessoryConfig {
 }
 
 export const isDefined = <T>(value: T): value is NonNullable<T> =>
-  value != null;
-
+  value !== null;
 
 function isValidConfig(
   config: AccessoryConfig,
@@ -39,9 +38,8 @@ export class SongguoPCCardAccessory implements AccessoryPlugin {
 
       const {
         Service:{
-          AirPurifier,
           Switch,
-          AccessoryInformation
+          AccessoryInformation,
         },
         Characteristic,
       } = api.hap;
@@ -52,7 +50,7 @@ export class SongguoPCCardAccessory implements AccessoryPlugin {
         this.cardService,
         this.config,
         Characteristic.On,
-        log
+        log,
       );
       this.accessoryInformationService = new AccessoryInformation().setCharacteristic(
         Characteristic.Manufacturer,
@@ -60,13 +58,15 @@ export class SongguoPCCardAccessory implements AccessoryPlugin {
       );
     }
   }
+
   identify?(): void {
     this.log.info(`Identifying "${this.name}" @ ${this.config?.username}`);
   }
+
   getServices(): Service[] {
     return [
       this.cardService,
-      this.accessoryInformationService
+      this.accessoryInformationService,
     ].filter(isDefined);
   }
 }
